@@ -12,4 +12,9 @@ struct Links: Decodable {
     let html: String?
     let download: String?
     let download_location: String?
+    let photos: String?
+    let likes: String?
+    let portfolio: String?
+    let following: String?
+    let followers: String?
 }
