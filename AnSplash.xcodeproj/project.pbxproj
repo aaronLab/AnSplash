@@ -11,6 +11,7 @@
 		A4B16A692582535E0025B0D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B16A682582535E0025B0D0 /* ContentView.swift */; };
 		A4B16A6B2582535F0025B0D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B16A6A2582535F0025B0D0 /* Assets.xcassets */; };
 		A4B16A6E2582535F0025B0D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B16A6D2582535F0025B0D0 /* Preview Assets.xcassets */; };
+		A4B16A7E258253B60025B0D0 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B16A7D258253B60025B0D0 /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		A4B16A6D2582535F0025B0D0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A4B16A6F2582535F0025B0D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4B16A702582535F0025B0D0 /* AnSplash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnSplash.entitlements; sourceTree = "<group>"; };
+		A4B16A7D258253B60025B0D0 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +55,11 @@
 		A4B16A652582535E0025B0D0 /* AnSplash */ = {
 			isa = PBXGroup;
 			children = (
-				A4B16A662582535E0025B0D0 /* AnSplashApp.swift */,
-				A4B16A682582535E0025B0D0 /* ContentView.swift */,
-				A4B16A6A2582535F0025B0D0 /* Assets.xcassets */,
-				A4B16A6F2582535F0025B0D0 /* Info.plist */,
-				A4B16A702582535F0025B0D0 /* AnSplash.entitlements */,
+				A4B16A7B258253A50025B0D0 /* Core */,
+				A4B16A7A258253980025B0D0 /* Models */,
+				A4B16A79258253900025B0D0 /* View Models */,
+				A4B16A782582538C0025B0D0 /* Views */,
+				A4B16A77258253840025B0D0 /* Application */,
 				A4B16A6C2582535F0025B0D0 /* Preview Content */,
 			);
 			path = AnSplash;
@@ -69,6 +71,55 @@
 				A4B16A6D2582535F0025B0D0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A4B16A77258253840025B0D0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A4B16A662582535E0025B0D0 /* AnSplashApp.swift */,
+				A4B16A682582535E0025B0D0 /* ContentView.swift */,
+				A4B16A6A2582535F0025B0D0 /* Assets.xcassets */,
+				A4B16A6F2582535F0025B0D0 /* Info.plist */,
+				A4B16A702582535F0025B0D0 /* AnSplash.entitlements */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		A4B16A782582538C0025B0D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4B16A79258253900025B0D0 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		A4B16A7A258253980025B0D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A4B16A7B258253A50025B0D0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A4B16A7C258253A90025B0D0 /* API */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A4B16A7C258253A90025B0D0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A4B16A7D258253B60025B0D0 /* APIKey.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B16A692582535E0025B0D0 /* ContentView.swift in Sources */,
+				A4B16A7E258253B60025B0D0 /* APIKey.swift in Sources */,
 				A4B16A672582535E0025B0D0 /* AnSplashApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
