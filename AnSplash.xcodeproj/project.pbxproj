@@ -19,6 +19,9 @@
 		A4B16A92258259190025B0D0 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B16A91258259190025B0D0 /* Links.swift */; };
 		A4B16A95258259D40025B0D0 /* Sponsorship.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B16A94258259D40025B0D0 /* Sponsorship.swift */; };
 		A4B16A9925825A090025B0D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B16A9825825A090025B0D0 /* User.swift */; };
+		A4B16AA125825BFC0025B0D0 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B16AA025825BFC0025B0D0 /* APIService.swift */; };
+		A4B16AA425825C2A0025B0D0 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B16AA325825C2A0025B0D0 /* APIError.swift */; };
+		A4B16AA725825C4C0025B0D0 /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B16AA625825C4C0025B0D0 /* APISession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		A4B16A91258259190025B0D0 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		A4B16A94258259D40025B0D0 /* Sponsorship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsorship.swift; sourceTree = "<group>"; };
 		A4B16A9825825A090025B0D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A4B16AA025825BFC0025B0D0 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		A4B16AA325825C2A0025B0D0 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		A4B16AA625825C4C0025B0D0 /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				A4B16A7D258253B60025B0D0 /* APIKey.swift */,
+				A4B16AA025825BFC0025B0D0 /* APIService.swift */,
+				A4B16AA325825C2A0025B0D0 /* APIError.swift */,
+				A4B16AA625825C4C0025B0D0 /* APISession.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -232,12 +241,15 @@
 				A4B16A95258259D40025B0D0 /* Sponsorship.swift in Sources */,
 				A4B16A692582535E0025B0D0 /* ContentView.swift in Sources */,
 				A4B16A87258256EE0025B0D0 /* CommonUtils.swift in Sources */,
+				A4B16AA125825BFC0025B0D0 /* APIService.swift in Sources */,
+				A4B16AA425825C2A0025B0D0 /* APIError.swift in Sources */,
 				A4B16A8E258258AA0025B0D0 /* URLs.swift in Sources */,
 				A4B16A7E258253B60025B0D0 /* APIKey.swift in Sources */,
 				A4B16A672582535E0025B0D0 /* AnSplashApp.swift in Sources */,
 				A4B16A822582562C0025B0D0 /* PhotoResponse.swift in Sources */,
 				A4B16A8B2582577A0025B0D0 /* Date+Extensions.swift in Sources */,
 				A4B16A92258259190025B0D0 /* Links.swift in Sources */,
+				A4B16AA725825C4C0025B0D0 /* APISession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
