@@ -41,7 +41,7 @@ struct HomeView: View {
         .frame(minWidth: width * 0.6, minHeight: height * 0.6)
         .frame(maxWidth: width, maxHeight: height)
         .onAppear {
-            self.viewModel.getPhotos(page: self.page)
+            // self.viewModel.getPhotos(page: self.page)
         }
     }
 }
