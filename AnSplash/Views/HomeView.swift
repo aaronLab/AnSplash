@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeView: View {
     
@@ -29,19 +30,29 @@ struct HomeView: View {
                 
                 Color.gray
                     .ignoresSafeArea()
-                
-                LazyVGrid(columns: self.gridColumns, alignment: .center, spacing: 20) {
-                    ForEach(self.viewModel.photos, id: \.id) { photo in
-                        Text(photo.id)
-                    }
-                }
-            } //: ZSTACK
+                ScrollView {
+                    LazyVGrid(columns: self.gridColumns, alignment: .center, spacing: 20) {
+                        ForEach(self.viewModel.photos, id: \.id) { photo in
+                            
+                            WebImage(url: URL(string: photo.urls?.small ?? ""))
+                                .resizable()
+                                .placeholder { ProgressView() }
+                                .scaledToFit()
+                                .cornerRadius(8.0)
+                                .padding(16)
+                                .frame(width: geo.size.width / 4, height: geo.size.height / 2)
+                                .shadow(color: Color.black.opacity(0.16), radius: 5, x: 5, y: 5)
+                                .shadow(color: Color.black.opacity(0.16), radius: 5, x: -5, y: -5)
+                        }
+                    } //: LG
+                } //: SC
+            } //: Z
             .frame(width: geo.size.width, height: geo.size.height)
-        } //: GEOMETRY
+        } //: G
         .frame(minWidth: width * 0.6, minHeight: height * 0.6)
         .frame(maxWidth: width, maxHeight: height)
         .onAppear {
-            // self.viewModel.getPhotos(page: self.page)
+             self.viewModel.getPhotos(page: self.page)
         }
     }
 }
