@@ -36,7 +36,13 @@ extension HomeViewModel {
             .sink { result in
                 self.handleResult(with: result)
             } receiveValue: { response in
-                self.photos = response
+                if self.photos.isEmpty {
+                    self.photos = response
+                } else {
+                    for res in response {
+                        self.photos.append(res)
+                    }
+                }
             }
             .store(in: &self.cancellables)
     }

@@ -31,20 +31,39 @@ struct HomeView: View {
                 Color.gray
                     .ignoresSafeArea()
                 ScrollView {
-                    LazyVGrid(columns: self.gridColumns, alignment: .center, spacing: 20) {
-                        ForEach(self.viewModel.photos, id: \.id) { photo in
-                            
-                            WebImage(url: URL(string: photo.urls?.small ?? ""))
-                                .resizable()
-                                .placeholder { ProgressView() }
-                                .scaledToFit()
-                                .cornerRadius(8.0)
-                                .padding(16)
-                                .frame(width: geo.size.width / 4, height: geo.size.height / 2)
-                                .shadow(color: Color.black.opacity(0.16), radius: 5, x: 5, y: 5)
-                                .shadow(color: Color.black.opacity(0.16), radius: 5, x: -5, y: -5)
-                        }
-                    } //: LG
+                    
+                    VStack(alignment: .center, spacing: 30) {
+                        
+                        Text("AnSplash")
+                            .font(.title)
+                            .foregroundColor(.white)
+                        
+                        LazyVGrid(columns: self.gridColumns, alignment: .center, spacing: 20) {
+                            ForEach(self.viewModel.photos, id: \.id) { photo in
+                                
+                                WebImage(url: URL(string: photo.urls?.small ?? ""))
+                                    .resizable()
+                                    .placeholder { ProgressView() }
+                                    .scaledToFit()
+                                    .cornerRadius(8.0)
+                                    .padding(16)
+                                    .frame(width: geo.size.width / 5, height: geo.size.height / 3)
+                                    .background(
+                                        Color.black.opacity(0.16)
+                                            .cornerRadius(8.0)
+                                            .shadow(color: Color.black.opacity(0.4), radius: 5, x: 5, y: 5)
+                                            .shadow(color: Color.black.opacity(0.4), radius: 5, x: -5, y: -5)
+                                    )
+                                    .onAppear {
+                                        if photo.id == viewModel.photos.last?.id {
+                                            self.page += 1
+                                            self.viewModel.getPhotos(page: self.page)
+                                        }
+                                    }
+                            }
+                        } //: LG
+                    } //: V
+                    .padding()
                 } //: SC
             } //: Z
             .frame(width: geo.size.width, height: geo.size.height)
