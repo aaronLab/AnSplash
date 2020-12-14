@@ -18,6 +18,7 @@ final class HomeViewModel: ObservableObject, PhotosService {
     
     // PHOTOS
     @Published var photos = [PhotoResponse]()
+    @Published var selectedPhoto: PhotoResponse? = nil
     
     // MARK: - INIT
     
