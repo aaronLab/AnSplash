@@ -60,6 +60,9 @@ struct HomeView: View {
                                             self.viewModel.getPhotos(page: self.page)
                                         }
                                     }
+                                    .onTapGesture {
+                                        self.saveImage(urlString: photo.urls?.small, id: photo.id)
+                                    }
                             }
                         } //: LG
                     } //: V
@@ -74,4 +77,43 @@ struct HomeView: View {
              self.viewModel.getPhotos(page: self.page)
         }
     }
+}
+
+extension HomeView {
+    
+    private func saveImage(urlString: String?, id: String?) {
+        guard let urlString = urlString,
+              let id = id,
+              let imageURL = URL(string: urlString)
+        else { fatalError("HomeView -> saveImage: Invalid URL & ID") }
+        
+        let manager = SDWebImageDownloader(config: .default)
+        manager.downloadImage(with: imageURL) { image, _, _, _ in
+            
+            guard let imageOriginal = image else { preconditionFailure("Failed to load image") }
+            
+            let data = imageOriginal.sd_imageData(as: .JPEG)
+            
+            let pannel = NSSavePanel()
+            pannel.canCreateDirectories = true
+            pannel.nameFieldStringValue = "\(id).jpg"
+            
+            pannel.begin { response in
+                
+                if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
+                    
+                    do {
+                        
+                        try data?.write(to: pannel.url!, options: .atomicWrite)
+                    } catch {
+                        fatalError("Cannot save Image")
+                    }
+                }
+                
+            }
+            
+        }
+        
+    }
+    
 }
