@@ -15,6 +15,7 @@ struct HomeView: View {
     // DATA
     @ObservedObject private var viewModel = HomeViewModel()
     @State private var page: Int = 1
+    @State private var showActionSheet = false
     
     // VIEW
     private let width = NSScreen.main!.frame.width
@@ -61,7 +62,8 @@ struct HomeView: View {
                                         }
                                     }
                                     .onTapGesture {
-                                        self.saveImage(urlString: photo.urls?.small, id: photo.id)
+                                        self.viewModel.selectedPhoto = photo
+                                        self.showActionSheet.toggle()
                                     }
                             }
                         } //: LG
@@ -73,47 +75,11 @@ struct HomeView: View {
         } //: G
         .frame(minWidth: width * 0.6, minHeight: height * 0.6)
         .frame(maxWidth: width, maxHeight: height)
+        .sheet(isPresented: $showActionSheet) {
+            HomeDownloadSheet(isPresented: $showActionSheet, photoResponse: viewModel.selectedPhoto)
+        }
         .onAppear {
              self.viewModel.getPhotos(page: self.page)
         }
     }
-}
-
-extension HomeView {
-    
-    private func saveImage(urlString: String?, id: String?) {
-        guard let urlString = urlString,
-              let id = id,
-              let imageURL = URL(string: urlString)
-        else { fatalError("HomeView -> saveImage: Invalid URL & ID") }
-        
-        let manager = SDWebImageDownloader(config: .default)
-        manager.downloadImage(with: imageURL) { image, _, _, _ in
-            
-            guard let imageOriginal = image else { preconditionFailure("Failed to load image") }
-            
-            let data = imageOriginal.sd_imageData(as: .JPEG)
-            
-            let pannel = NSSavePanel()
-            pannel.canCreateDirectories = true
-            pannel.nameFieldStringValue = "\(id).jpg"
-            
-            pannel.begin { response in
-                
-                if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
-                    
-                    do {
-                        
-                        try data?.write(to: pannel.url!, options: .atomicWrite)
-                    } catch {
-                        fatalError("Cannot save Image")
-                    }
-                }
-                
-            }
-            
-        }
-        
-    }
-    
 }
